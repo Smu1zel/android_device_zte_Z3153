@@ -1,0 +1,310 @@
+# Copyright (C) 2012 ZTE by RUIJIAGUI
+#
+# IMPORTANT: Do not create world writable files or directories.
+# This is a common source of Android security bugs.
+#
+
+#cpu hungry policy
+on init
+    mkdir /dev/cpuctl/cpu_hungry_app
+    mkdir /mnt/vendor/carrier 0777 system system
+    chown system system /dev/cpuctl/cpu_hungry_app/tasks
+    chmod 0666 /dev/cpuctl/cpu_hungry_app/tasks
+    write /dev/cpuctl/cpu_hungry_app/cpu.shares 52
+    write /dev/cpuctl/cpu_hungry_app/cpu.rt_period_us 1000000
+    write /dev/cpuctl/cpu_hungry_app/cpu.rt_runtime_us 950000
+
+on brd-post-fs
+    #add for after-sale-requirement
+    mkdir /mnt/vendor/persist/zstats 0755 system system
+    chown system system /sys/class/power_supply/bcl/serial_number
+    chown system system /sys/class/power_supply/bcl/authentic
+    chown system system /sys/class/power_supply/bcl/charge_now
+    chown system system /sys/class/power_supply/bcl/charge_full
+    chown system system /sys/class/power_supply/bcl/charge_full_design
+    chown system system /sys/module/zte_misc/parameters/policy_enable
+    chown system system /mnt/vendor/persist/zstats/capacity.dat
+    chown system system /mnt/vendor/persist/zstats/charging.dat
+    chown system system /mnt/vendor/persist/zstats/cycle.dat
+    chmod 0664  /mnt/vendor/persist/zstats/capacity.dat
+    chmod 0664  /mnt/vendor/persist/zstats/charging.dat
+    chmod 0664  /mnt/vendor/persist/zstats/cycle.dat
+    chmod 0664  /sys/module/zte_misc/parameters/policy_enable
+    chown root system  /dev/kmsg
+
+    mkdir /mnt/vendor/persist/camera 0777 cameraserver cameraserver
+    chown cameraserver cameraserver  /mnt/vendor/persist/camera/dualcam_cali.bin
+    chmod 0766  /mnt/vendor/persist/camera/dualcam_cali.bin
+
+    chmod 0664  /dev/kmsg
+
+on late-init
+    write /sys/module/zte_misc/parameters/screen_on 1
+
+on charger
+    chown system system /sys/class/leds/red/trigger
+    chown system system /sys/class/leds/red/pwm_dim_freq
+    chown system system /sys/class/leds/red/pwm_duty
+    chown system system /sys/class/leds/red/delay_on
+    chown system system /sys/class/leds/red/delay_off
+    chown system system /sys/class/leds/green/trigger
+    chown system system /sys/class/leds/green/pwm_dim_freq
+    chown system system /sys/class/leds/green/pwm_duty
+    chown system system /sys/class/leds/green/delay_on
+    chown system system /sys/class/leds/green/delay_off
+
+    mkdir /mnt/vendor/persist
+    wait /dev/block/platform/bootdevice/by-name/persist
+    mount ext4 /dev/block/platform/bootdevice/by-name/persist /mnt/vendor/persist noatime nosuid nodev barrier=1
+
+    trigger brd-post-fs
+
+    class_start brd_charger
+
+    class_start zte_thermal
+
+on post-fs
+    chown system system /mnt/vendor/carrier
+    chmod 0771 /mnt/vendor/carrier
+    restorecon_recursive /mnt/vendor/carrierr
+
+    chown root system /mnt/vendor/persist
+    chmod 0771 /mnt/vendor/persist
+    mkdir /mnt/vendor/persist/data 0700 system system
+    mkdir /mnt/vendor/persist/bms 0700 root system
+    restorecon_recursive /mnt/vendor/persist
+
+on post-fs-data
+    # DTS_EAGLE START
+    mkdir /data/vendor/audio
+    mkdir /data/vendor/audio/dts
+    chown media audio /data/vendor/audio/dts
+    chmod 0771 /data/vendor/audio/dts
+
+    copy /data/vendor/audio/dts/dts_audio_settings /data/vendor/audio/dts/temp
+    copy /vendor/etc/dts/dts_audio_settings /data/vendor/audio/dts/dts_audio_settings
+    copy /data/vendor/audio/dts/temp data/vendor/audio/dts/dts_audio_settings
+    rm /data/vendor/audio/dts/temp
+    chown audioserver audio /data/vendor/audio/dts/dts_audio_settings
+
+    setprop ro.vendor.dts.licensepath "/vendor/etc/dts/"
+    setprop ro.vendor.dts.cfgpath "/vendor/etc/dts/"
+    # DTS_EAGLE END
+
+    #ZTE add for dump audio/vm log for masstest
+    mkdir /data/vendor/audiohal
+    chmod 0775 /data/vendor/audiohal
+    mkdir /data/vendor/audiohal/audio_dump
+    chown audioserver audio /data/vendor/audiohal/audio_dump
+    chmod 0777 /data/vendor/audiohal/audio_dump
+
+    #ZTE add path to store the calibration file of AW881XX
+    mkdir /mnt/vendor/persist/smartpa_cali_data 0777 system root
+
+    #ZTE add permissions to calibrate smart pa in PV version
+    chown system system /sys/bus/i2c/drivers/aw881xx_smartpa/6-0034/rw
+    chown system system /sys/bus/i2c/drivers/aw881xx_smartpa/6-0034/monitor
+    chown system system /sys/bus/i2c/drivers/aw881xx_smartpa/6-0034/re
+    chown system system /sys/bus/i2c/drivers/aw881xx_smartpa/6-0034/f0
+    chown system system /sys/bus/i2c/drivers/aw881xx_smartpa/6-0034/cali
+
+    #ZTE add permission to read calibration file in normal version
+    chmod 0644 /mnt/vendor/persist/smartpa_cali_data/aw_cali.bin
+
+    #Create calibration dir by arcsoft
+    mkdir /data/vendor/arcsoft
+    chown cameraserver audio /data/vendor/arcsoft
+    chmod 0771 /data/vendor/arcsoft
+    chown system system /mnt/vendor/persist/camera
+    chmod 0755 /mnt/vendor/persist/camera
+
+    #Create calibration dir by arcsoft
+    mkdir /data/vendor/remosaic
+    chown cameraserver audio /data/vendor/remosaic
+    chmod 0771 /data/vendor/remosaic
+
+    #Create thirdalgo dir by camera
+    mkdir /data/vendor/camera_thirdalgo
+    chown cameraserver audio /data/vendor/camera_thirdalgo
+    chmod 0771 /data/vendor/camera_thirdalgo
+
+    #Create calibration dir by westalgo
+    mkdir /data/vendor/westalgo
+    mkdir /data/vendor/westalgo/dof_model
+    mkdir /data/vendor/westalgo/rt_model
+    mkdir /data/vendor/westalgo/rt_model/mask
+    mkdir /data/vendor/westalgo/rt_model/score
+    chown cameraserver audio /data/vendor/westalgo
+    chown cameraserver audio /data/vendor/westalgo/dof_model
+    chown cameraserver audio /data/vendor/westalgo/rt_model
+    chown cameraserver audio /data/vendor/westalgo/rt_model/mask
+    chown cameraserver audio /data/vendor/westalgo/rt_model/score
+    chmod 0771 /data/vendor/westalgo
+    copy vendor/etc/camera/dof_model/cache_data /data/vendor/westalgo/dof_model/cache_data
+    copy vendor/etc/camera/dof_model/segment_model /data/vendor/westalgo/dof_model/segment_model
+    copy vendor/etc/camera/dof_model/model_mdl_cache /data/vendor/westalgo/dof_model/model_mdl_cache
+    copy vendor/etc/camera/rt_model/mask/cache_data /data/vendor/westalgo/rt_model/mask/cache_data
+    copy vendor/etc/camera/rt_model/mask/segment_model  /data/vendor/westalgo/rt_model/mask/segment_model
+    copy vendor/etc/camera/rt_model/mask/model_mdl_cache /data/vendor/westalgo/rt_model/mask/model_mdl_cache
+    copy vendor/etc/camera/rt_model/score/cache_data /data/vendor/westalgo/rt_model/score/cache_data
+    copy vendor/etc/camera/rt_model/score/segment_model /data/vendor/westalgo/rt_model/score/segment_model
+    copy vendor/etc/camera/rt_model/score/model_mdl_cache  /data/vendor/westalgo/rt_model/score/model_mdl_cache
+    copy mnt/vendor/persist/camera/dualcam_cali.bin /data/vendor/westalgo/dualcam_cali.bin
+    chmod 0771  /data/vendor/westalgo/dof_model/cache_data
+    chmod 0771  /data/vendor/westalgo/dof_model/segment_model
+    chmod 0771  /data/vendor/westalgo/dof_model/model_mdl_cache
+    chmod 0771  /data/vendor/westalgo/rt_model/mask/cache_data
+    chmod 0771  /data/vendor/westalgo/rt_model/mask/segment_model
+    chmod 0771  /data/vendor/westalgo/rt_model/mask/model_mdl_cache
+    chmod 0771  /data/vendor/westalgo/rt_model/score/cache_data
+    chmod 0771  /data/vendor/westalgo/rt_model/score/segment_model
+    chmod 0771  /data/vendor/westalgo/rt_model/score/model_mdl_cache
+    chmod 0766  /data/vendor/westalgo/dualcam_cali.bin
+    chown cameraserver audio /data/vendor/westalgo/dof_model/cache_data
+    chown cameraserver audio /data/vendor/westalgo/dof_model/segment_model
+    chown cameraserver audio /data/vendor/westalgo/dof_model/model_mdl_cache
+    chown cameraserver audio /data/vendor/westalgo/rt_model/mask/cache_data
+    chown cameraserver audio /data/vendor/westalgo/rt_model/mask/segment_model
+    chown cameraserver audio /data/vendor/westalgo/rt_model/mask/model_mdl_cache
+    chown cameraserver audio /data/vendor/westalgo/rt_model/score/cache_data
+    chown cameraserver audio /data/vendor/westalgo/rt_model/score/segment_model
+    chown cameraserver audio /data/vendor/westalgo/rt_model/score/model_mdl_cache
+on boot
+    #add for charging policy
+    chown system system /sys/module/zte_misc/parameters/demo_charging_policy
+    chown system system /sys/module/zte_misc/parameters/expired_charging_policy
+    chown system system /sys/module/zte_misc/parameters/screen_on
+
+# touchscreen
+    chown system system /proc/touchscreen/wake_gesture
+    chmod 644 /proc/touchscreen/wake_gesture
+    chown system system /proc/touchscreen/smart_cover
+    chmod 644 /proc/touchscreen/smart_cover
+
+# for sar sensor
+    chown system system /sys/bus/i2c/drivers/sx932x/3-0028/status
+    chown system system /sys/bus/i2c/drivers/sx932x_2/3-002c/status
+    chown system system /sys/bus/i2c/drivers/sx932x/3-002c/status
+    chown system system /sys/bus/i2c/drivers/sx932x_2/3-0028/status
+
+# add for touch self-test
+    chown system system /sys/devices/virtual/tsp_fw/touchscreen/tpd_test_cmd
+    chown system system /sys/devices/virtual/tsp_fw/touchscreen/tpd_test_filename
+    chown system system /sys/devices/virtual/tsp_fw/touchscreen/tpd_test_ini_file_path
+    chown system system /sys/devices/virtual/tsp_fw/touchscreen/tpd_test_save_file_path
+    chown system system /sys/devices/virtual/tsp_fw/touchscreen/tpd_test_save_file_name
+    chmod 0646 /sys/devices/virtual/tsp_fw/touchscreen/tpd_test_cmd
+    chmod 0646 /sys/devices/virtual/tsp_fw/touchscreen/tpd_test_filename
+    chmod 0646 /sys/devices/virtual/tsp_fw/touchscreen/tpd_test_ini_file_path
+    chmod 0646 /sys/devices/virtual/tsp_fw/touchscreen/tpd_test_save_file_path
+    chmod 0646 /sys/devices/virtual/tsp_fw/touchscreen/tpd_test_save_file_name
+
+    chown system system /proc/driver/lcd_aod_bl
+    chmod 0666 /proc/driver/lcd_aod_bl
+    chown system system /proc/driver/lcd_hdr
+    chmod 0666 /proc/driver/lcd_hdr
+
+# add for flashlight
+    chown system system /sys/class/flashlight_core/flashlight/flashlight_strobe
+    chmod 0646 /sys/class/flashlight_core/flashlight/flashlight_strobe
+
+    trigger brd-post-fs
+
+    class_start brd_normal
+
+    class_start zte_thermal
+
+on property:sys.demochargingpolicy.protect=1
+    write /sys/module/zte_misc/parameters/demo_charging_policy 1
+on property:sys.demochargingpolicy.protect=0
+    write /sys/module/zte_misc/parameters/demo_charging_policy 0
+
+on property:persist.sys.keeppower.anyway=1
+    setprop persist.sys.overtemp.enable 0
+    write /sys/module/zte_misc/parameters/demo_charging_policy 1
+    write /sys/module/zte_misc/parameters/policy_lowtemp_en 0
+on property:persist.sys.keeppower.anyway=0
+    setprop persist.sys.overtemp.enable 1
+    write /sys/module/zte_misc/parameters/demo_charging_policy 0
+    write /sys/module/zte_misc/parameters/policy_lowtemp_en 1
+
+on property:persist.sys.expiredchargingpolicy.protect=1
+    write /sys/module/zte_misc/parameters/expired_policy_en 1
+on property:persist.expiredchargingpolicy.protect=0
+    write /sys/module/zte_misc/parameters/expired_policy_en 0
+
+# add for emode screenfingerprint test
+on property:sys.lcd_screen.brightness.goodixtp=1
+    write /sys/class/leds/lcd-backlight/brightness 150
+on property:sys.lcd_screen.brightness.goodixtp=0
+    write /sys/class/leds/lcd-backlight/brightness 0
+on property:sys.lcd_screen.brightness.goodixtp=2
+    write /sys/class/leds/lcd-backlight/brightness 255
+on property:sys.lcd_screen.brightness.goodixtp=3
+    write /sys/class/leds/lcd-backlight/brightness 100
+on property:sys.lcd_screen.bl_dim=1
+    write /proc/driver/lcd_bl_dim 1
+on property:sys.lcd_screen.bl_dim=0
+    write /proc/driver/lcd_bl_dim 0
+
+on property:sys.mtk_dynamic_ims_switch=0
+    setprop persist.vendor.mtk_dynamic_ims_switch 0
+on property:sys.mtk_dynamic_ims_switch=1
+    setprop persist.vendor.mtk_dynamic_ims_switch 1
+
+on property:sys.skip.data.stall.alarm=0
+    setprop persist.vendor.skip.data.stall.alarm 0
+on property:sys.skip.data.stall.alarm=1
+    setprop persist.vendor.skip.data.stall.alarm 1
+
+#shutdownanim service
+service shutdownanim /system/bin/bootanimation -s
+    class core animation
+    user root
+    group root graphics audio system
+    disabled
+    oneshot
+    writepid /dev/stune/top-app/tasks
+
+service brd_normal /vendor/bin/battery_record_daemon normal
+    class brd_normal
+    user system
+    group system root
+
+service brd_charger /vendor/bin/battery_record_daemon charger
+    class brd_charger
+    user system
+    group system root
+
+service zte_thermal /vendor/bin/zte_thermal_daemon
+    class zte_thermal
+    user root
+    group root system
+
+# MT6739 close jankyframe
+on property:ro.board.platform=mt6739
+    setprop persist.vendor.jankyframe.enable 0
+
+#ZTE_LC_IP_DEBUG  20130513 start
+on property:vendor.MB.running=0
+    setprop persist.shell.tcpip.debug 0
+
+on property:vendor.MB.running=1
+    setprop persist.shell.tcpip.debug 3
+
+on property:persist.shell.tcpip.debug=0
+    write /sys/kernel/debug/tcp_output_debug/enable_debug 0
+on property:persist.shell.tcpip.debug=1
+    write /sys/kernel/debug/tcp_output_debug/enable_debug 1
+on property:persist.shell.tcpip.debug=2
+    write /sys/kernel/debug/tcp_output_debug/enable_debug 2
+on property:persist.shell.tcpip.debug=3
+    write /sys/kernel/debug/tcp_output_debug/enable_debug 3
+on property:persist.shell.tcpip.debug=4
+    write /sys/kernel/debug/tcp_output_debug/enable_debug 4
+#ZTE_LC_IP_DEBUG  20130513 end
+on property:sys.boot_completed=1
+    mkdir /mnt/vendor/persist/camera 0755 system cameraserver
+    chown system cameraserver /mnt/vendor/persist/camera/dualcam_cali.bin
+    chmod 0644 /mnt/vendor/persist/camera/dualcam_cali.bin
+
