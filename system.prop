@@ -8,3 +8,6 @@ ro.debuggable=1
 persist.sys.usb.config=adb
 sys.usb.config=adb
 sys.usb.ffs.aio_compat=1
+
+# Controller
+sys.usb.controller=musb-hdrc
