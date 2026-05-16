@@ -3,6 +3,7 @@ ro.display.series=ZTE Z3153
 ro.product.device=Z3153
 
 # USB and ADB Debugging
+# TODO: Do we really need these?
 ro.adb.secure=0
 ro.debuggable=1
 persist.sys.usb.config=adb

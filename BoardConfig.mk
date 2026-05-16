@@ -41,7 +41,6 @@ BOARD_MKBOOTIMG_ARGS += --os_version 10.0.0
 BOARD_MKBOOTIMG_ARGS += --os_patch_level 2021-08
 
 # Kernel - Prebuilts
-# NOTE: Ensure your kernel files are in a folder named 'prebuilt' (not 'prebuilts')
 TARGET_FORCE_PREBUILT_KERNEL := true
 TARGET_PREBUILT_KERNEL := $(DEVICE_PATH)/prebuilt/kernel
 TARGET_PREBUILT_DTB := $(DEVICE_PATH)/prebuilt/dtb.img
