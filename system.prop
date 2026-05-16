@@ -1,47 +1,10 @@
-# Audio
-ro.audio.silent=0
+# System & Hardware
+ro.display.series=ZTE Z3153
+ro.product.device=Z3153
 
-# Camera
-persist.vendor.camera.expose.aux=1
-
-# Display
-ro.opengles.version=196610
-
-# Wi-Fi
-ro.wifi.channels=
-wifi.direct.interface=p2p0
-wifi.interface=wlan0
-wifi.tethering.interface=ap0
-
-# Miscellaneous
-Build.BRAND=MTK
-mediatek.wlan.ctia=0
-net.bt.name=Android
-qemu.hw.mainkeys=0
-ro.build.sw_internal_version=Z3153VV1.0.1B15
-ro.camera.sound.forced=0
-ro.com.google.clientidbase.am=android-verizon
-ro.com.google.clientidbase.cr=
-ro.com.google.clientidbase.ms=android-verizon
-ro.com.google.clientidbase.wal=
-ro.com.google.rlz_ap_whitelist=YG,Y8
-ro.com.google.rlzbrandcode=ZTEA
-ro.kernel.zio=38,108,105,16
-ro.mediatek.wlan.p2p=1
-ro.mediatek.wlan.wsc=1
-ro.mtk_perf_fast_start_win=1
-ro.mtk_perf_response_time=1
-ro.mtk_perf_simple_start_win=1
-ro.product.cpu.abi2=armeabi
-ro.product.property_source_order=odm,vendor,product,system
-ro.setupwizard.mode=OPTIONAL
-ro.sys.usb.bicr=no
-ro.sys.usb.charging.only=yes
-ro.sys.usb.mtp.whql.enable=0
-ro.sys.usb.storage.type=mtp
-ro.zygote.preload.enable=0
-sys.ipo.disable=1
-sys.ipo.pwrdncap=2
-vendor.rild.libargs=-d /dev/ttyC0
-vendor.rild.libpath=mtk-ril.so
-
+# USB and ADB Debugging
+ro.adb.secure=0
+ro.debuggable=1
+persist.sys.usb.config=adb
+sys.usb.config=adb
+sys.usb.ffs.aio_compat=1
