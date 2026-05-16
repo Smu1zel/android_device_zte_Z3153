@@ -85,3 +85,9 @@ TW_USE_TOOLBOX := true
 TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/recovery.fstab
 
 ALLOW_MISSING_DEPENDENCIES := true
+
+# Quick hack until I fix the vendor props.
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.debuggable=1 \
+    ro.adb.secure=0 \
+    persist.sys.usb.config=adb
