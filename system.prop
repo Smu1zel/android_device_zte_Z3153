@@ -1,3 +1,9 @@
+#
+# SPDX-FileCopyrightText: The LineageOS Project
+# SPDX-FileCopyrightText: 2026 Lynden Lewis <lyndenl25@yahoo.com>
+# SPDX-License-Identifier: Apache-2.0
+#
+
 # System & Hardware
 ro.display.series=ZTE Z3153
 ro.product.device=Z3153
