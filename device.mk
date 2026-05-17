@@ -13,3 +13,7 @@ PRODUCT_SHIPPING_API_LEVEL := 28
 # Soong namespaces
 PRODUCT_SOONG_NAMESPACES += \
     $(LOCAL_PATH)
+
+# Make the hack exist
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/init.recovery.mt6761.rc:recovery/root/init.recovery.mt6761.rc

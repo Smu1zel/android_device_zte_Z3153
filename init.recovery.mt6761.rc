@@ -1,0 +1,22 @@
+#
+# SPDX-FileCopyrightText: The LineageOS Project
+# SPDX-FileCopyrightText: 2026 Lynden Lewis <lyndenl25@yahoo.com>
+# SPDX-License-Identifier: Apache-2.0
+#
+
+# Stupid hack I have to do to clear the Software Upgrade (sua_sideload) mode state (triggered by Vol Up + insert USB) that breaks reboot targets
+service zte_loop_check /system/bin/sh -c "if /system/bin/dd if=/dev/block/platform/bootdevice/by-name/para bs=1024 count=2 2>/dev/null | /system/bin/grep -q 'sideload_auto_reboot'; then /system/bin/dd if=/dev/zero of=/dev/block/platform/bootdevice/by-name/para bs=2048 count=1 conv=notrunc; setprop zte.loop_fixed 1; fi"
+    user root
+    group root
+    disabled
+    seclabel u:r:recovery:s0
+    oneshot
+
+# Try early
+on fs
+    start zte_loop_check
+
+# Retry if the symlinks weren't ready earlier
+on post-fs
+    start zte_loop_check
+
