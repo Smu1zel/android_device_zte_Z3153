@@ -4,18 +4,18 @@
 # SPDX-License-Identifier: Apache-2.0
 #
 
-# mount point       fstype    device                                                                options
+# <src>                                                 <mnt_point> <type>  <mnt_flags>                 <fs_mgr_flags>
 
-/system             ext4      /dev/block/platform/bootdevice/by-name/system                         ro
-/vendor             ext4      /dev/block/platform/bootdevice/by-name/vendor                         ro
-/data               f2fs      /dev/block/platform/bootdevice/by-name/userdata                       noatime,nosuid,nodev,discard
-/cache              ext4      /dev/block/platform/bootdevice/by-name/cache                          noatime,nosuid,nodev
-/boot               emmc      /dev/block/platform/bootdevice/by-name/boot                           defaults
-/recovery           emmc      /dev/block/platform/bootdevice/by-name/recovery                       defaults
-/misc               emmc      /dev/block/platform/bootdevice/by-name/para                           defaults
-/dtbo               emmc      /dev/block/platform/bootdevice/by-name/dtbo                           defaults
-/vbmeta             emmc      /dev/block/platform/bootdevice/by-name/vbmeta                         defaults
+/dev/block/platform/bootdevice/by-name/system           /system     ext4    ro                          wait
+/dev/block/platform/bootdevice/by-name/vendor           /vendor     ext4    ro                          wait
+/dev/block/platform/bootdevice/by-name/userdata         /data       f2fs    noatime,nosuid,nodev        wait,check
+/dev/block/platform/bootdevice/by-name/cache            /cache      ext4    noatime,nosuid,nodev        wait,check
+/dev/block/platform/bootdevice/by-name/boot             /boot       emmc    defaults                    defaults
+/dev/block/platform/bootdevice/by-name/recovery         /recovery   emmc    defaults                    defaults
+/dev/block/platform/bootdevice/by-name/para             /misc       emmc    defaults                    defaults
+/dev/block/platform/bootdevice/by-name/dtbo             /dtbo       emmc    defaults                    defaults
+/dev/block/platform/bootdevice/by-name/vbmeta           /vbmeta     emmc    defaults                    defaults
 
 # Removable Storage
-/external_sd        vfat      /dev/block/mmcblk1p1    /dev/block/mmcblk1                            defaults
-/usb_otg            vfat      /dev/block/sda1         /dev/block/sda                                defaults
+/devices/platform/externdevice*                         auto        auto    defaults                    voldmanaged=sdcard1:auto
+/devices/platform/mt_usb*                               auto        vfat    defaults                    voldmanaged=usbotg:auto
