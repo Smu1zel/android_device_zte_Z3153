@@ -933,7 +933,6 @@ vendor/etc/aee-config
 vendor/etc/agps_profiles_conf2.xml
 vendor/etc/audio_device.xml
 vendor/etc/audio_em.xml
-vendor/etc/audio_policy.conf
 vendor/etc/aurisys_config.xml
 vendor/etc/default_pd_calibration.bin
 vendor/etc/ecc_list.xml
