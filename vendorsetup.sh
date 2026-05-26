@@ -5,3 +5,6 @@
 #
 
 add_lunch_combo twrp_Z3153-eng
+add_lunch_combo lineage_Z3153-user
+add_lunch_combo lineage_Z3153-userdebug
+add_lunch_combo lineage_Z3153-eng
