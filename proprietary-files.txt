@@ -647,7 +647,7 @@ odm/etc/vintf/manifest_ss.xml
 odm/etc/vintf/manifest_ss_se.xml
 odm/etc/vintf/manifest_ss_se_ese.xml
 odm/etc/vintf/manifest_tsts.xml
-vendor/app/SensorHub/SensorHub.apk
+-vendor/app/SensorHub/SensorHub.apk
 vendor/bin/hw/modemdbfilter_service
 vendor/bin/hw/power_legacy_test_v_1_0
 vendor/bin/hw/power_native_test_v_1_0
