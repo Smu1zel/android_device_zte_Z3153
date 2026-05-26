@@ -339,7 +339,6 @@ vendor/etc/init/android.hardware.configstore@1.1-service.rc
 vendor/lib/libhwminijail.so
 
 # Display
-lib/egl/libGLES_android.so
 lib/vendor.mediatek.hardware.mms@1.0.so
 lib/vendor.mediatek.hardware.mms@1.1.so
 lib/vendor.mediatek.hardware.mms@1.2.so
