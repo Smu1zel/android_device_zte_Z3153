@@ -21,15 +21,15 @@ service tee-supplicant /vendor/bin/tee-supplicant
 
 # Keymaster 4.0 (hardware-backed key derivation for FDE)
 service keymaster-4-0-zte /vendor/bin/hw/android.hardware.keymaster@4.0-service.zte
-    user root
-    group root drmrpc
+    user system
+    group system drmrpc
     disabled
     seclabel u:r:recovery:s0
 
 # Gatekeeper (PIN/password verification against hardware)
 service gatekeeper-1-0 /vendor/bin/hw/android.hardware.gatekeeper@1.0-service
-    user root
-    group root
+    user system
+    group system
     disabled
     seclabel u:r:recovery:s0
 
