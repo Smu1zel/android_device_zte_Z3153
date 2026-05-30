@@ -89,4 +89,5 @@ TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/recovery.fstab
 ALLOW_MISSING_DEPENDENCIES := true
 
 # Hack. Remove later.
+TARGET_COPY_OUT_VENDOR := vendor
 TW_EXCLUDE_MTP := true
