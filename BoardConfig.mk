@@ -82,8 +82,6 @@ TW_EXCLUDE_DEFAULT_USB_INIT := true
 TW_INCLUDE_NTFS_3G := true
 TW_USE_TOOLBOX := true
 TW_INCLUDE_CRYPTO := true
-TARGET_HW_DISK_ENCRYPTION := true
-TW_CRYPTO_SYSTEM_VOLD_MOUNT := vendor
 TW_PREPARE_DATA_MEDIA_EARLY := true
 
 # Recovery Fstab
@@ -97,3 +95,7 @@ TW_EXCLUDE_MTP := true
 
 # VINTF Manifest for HIDL services (Keymaster, Gatekeeper)
 DEVICE_MANIFEST_FILE := $(DEVICE_PATH)/manifest.xml
+
+# Debug
+TARGET_USES_LOGD := true
+TWRP_INCLUDE_LOGCAT := true
