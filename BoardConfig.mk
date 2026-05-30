@@ -91,3 +91,6 @@ ALLOW_MISSING_DEPENDENCIES := true
 # Hack. Remove later.
 TARGET_COPY_OUT_VENDOR := vendor
 TW_EXCLUDE_MTP := true
+
+# VINTF Manifest for HIDL services (Keymaster, Gatekeeper)
+DEVICE_MANIFEST_FILE := $(DEVICE_PATH)/manifest.xml

@@ -23,6 +23,7 @@ service tee-supplicant /vendor/bin/tee-supplicant
 service keymaster-4-0-zte /vendor/bin/hw/android.hardware.keymaster@4.0-service.zte
     user root
     group root drmrpc
+    setenv LD_LIBRARY_PATH /vendor/lib:/system/lib
     disabled
     seclabel u:r:recovery:s0
 
@@ -30,6 +31,7 @@ service keymaster-4-0-zte /vendor/bin/hw/android.hardware.keymaster@4.0-service.
 service gatekeeper-1-0 /vendor/bin/hw/android.hardware.gatekeeper@1.0-service
     user root
     group root
+    setenv LD_LIBRARY_PATH /vendor/lib:/system/lib
     disabled
     seclabel u:r:recovery:s0
 
