@@ -19,6 +19,3 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/init.recovery.mt6761.rc:recovery/root/init.recovery.mt6761.rc \
     $(LOCAL_PATH)/manifest.xml:recovery/root/system/etc/vintf/manifest.xml \
     $(LOCAL_PATH)/manifest.xml:recovery/root/vendor/etc/vintf/manifest.xml
-
-PRODUCT_PACKAGES += \
-    android.hardware.gatekeeper@1.0-impl
