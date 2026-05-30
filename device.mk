@@ -20,3 +20,8 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/framework_manifest.xml:recovery/root/system/etc/vintf/manifest.xml \
     $(LOCAL_PATH)/manifest.xml:recovery/root/vendor/etc/vintf/manifest.xml \
     $(LOCAL_PATH)/vndservice_contexts:recovery/root/vendor/etc/selinux/vndservice_contexts
+
+PRODUCT_PACKAGES += \
+    keystore.default \
+    libkeymaster4 \
+    libpuresoftkeymasterdevice

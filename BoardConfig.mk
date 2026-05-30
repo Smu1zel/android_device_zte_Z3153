@@ -94,6 +94,12 @@ TW_INCLUDE_CRYPTO := true
 TW_INCLUDE_CRYPTO_FDE := true
 TW_PREPARE_DATA_MEDIA_EARLY := true
 
+# Relink libraries for encryption
+TW_RECOVERY_ADDITIONAL_RELINK_LIBRARY_FILES += \
+    $(TARGET_OUT_SHARED_LIBRARIES)/keystore.default.so \
+    $(TARGET_OUT_SHARED_LIBRARIES)/libkeymaster4.so \
+    $(TARGET_OUT_SHARED_LIBRARIES)/libpuresoftkeymasterdevice.so
+
 # Recovery Fstab
 TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/recovery.fstab
 
