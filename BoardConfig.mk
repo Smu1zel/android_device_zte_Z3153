@@ -94,6 +94,12 @@ TW_INCLUDE_CRYPTO := true
 TW_INCLUDE_CRYPTO_FDE := true
 TW_PREPARE_DATA_MEDIA_EARLY := true
 
+# Modules to include in recovery ramdisk
+TARGET_RECOVERY_DEVICE_MODULES += \
+    keystore.default \
+    libkeymaster4 \
+    libpuresoftkeymasterdevice
+
 # Relink libraries for encryption
 TW_RECOVERY_ADDITIONAL_RELINK_LIBRARY_FILES += \
     $(TARGET_OUT_SHARED_LIBRARIES)/keystore.default.so \
