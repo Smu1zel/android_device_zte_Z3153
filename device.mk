@@ -18,4 +18,5 @@ PRODUCT_SOONG_NAMESPACES += \
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/init.recovery.mt6761.rc:recovery/root/init.recovery.mt6761.rc \
     $(LOCAL_PATH)/manifest.xml:recovery/root/system/etc/vintf/manifest.xml \
-    $(LOCAL_PATH)/manifest.xml:recovery/root/vendor/etc/vintf/manifest.xml
+    $(LOCAL_PATH)/manifest.xml:recovery/root/vendor/etc/vintf/manifest.xml \
+    $(LOCAL_PATH)/vndservice_contexts:recovery/root/vendor/etc/selinux/vndservice_contexts
