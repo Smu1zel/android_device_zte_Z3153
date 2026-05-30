@@ -15,23 +15,50 @@ on post-fs
     write /config/usb_gadget/g1/os_desc/b_vendor_code 0x1
     write /config/usb_gadget/g1/os_desc/qw_sign "MSFT100"
     write /config/usb_gadget/g1/configs/b.1/MaxPower 500
+    
+    # Create MTP function directory
+    mkdir /config/usb_gadget/g1/functions/mtp.gs0
+    write /config/usb_gadget/g1/functions/mtp.gs0/os_desc/interface.MTP/compatible_id "MTP"
 
 on property:sys.usb.config=none
     write /config/usb_gadget/g1/UDC "none"
     stop adbd
     setprop sys.usb.ffs.ready 0
+    setprop sys.usb.ffs.mtp.ready 0
     rm /config/usb_gadget/g1/configs/b.1/f1
     rm /config/usb_gadget/g1/configs/b.1/f2
+    setprop sys.usb.state ${sys.usb.config}
 
-# The actual ADB trigger
+# ADB only configuration
 on property:sys.usb.ffs.ready=1 && property:sys.usb.config=adb
     write /config/usb_gadget/g1/configs/b.1/strings/0x409/configuration "adb"
     rm /config/usb_gadget/g1/configs/b.1/f1
     rm /config/usb_gadget/g1/configs/b.1/f2
-    # ZTE's specific Vendor ID
     write /config/usb_gadget/g1/idVendor 0x19D2
-    # Standard ADB Product ID
     write /config/usb_gadget/g1/idProduct 0x0238
     symlink /config/usb_gadget/g1/functions/ffs.adb /config/usb_gadget/g1/configs/b.1/f1
+    write /config/usb_gadget/g1/UDC ${sys.usb.controller}
+    setprop sys.usb.state ${sys.usb.config}
+
+# ADB Sideload configuration
+on property:sys.usb.ffs.ready=1 && property:sys.usb.config=sideload
+    write /config/usb_gadget/g1/configs/b.1/strings/0x409/configuration "sideload"
+    rm /config/usb_gadget/g1/configs/b.1/f1
+    rm /config/usb_gadget/g1/configs/b.1/f2
+    write /config/usb_gadget/g1/idVendor 0x19D2
+    write /config/usb_gadget/g1/idProduct 0x0238
+    symlink /config/usb_gadget/g1/functions/ffs.adb /config/usb_gadget/g1/configs/b.1/f1
+    write /config/usb_gadget/g1/UDC ${sys.usb.controller}
+    setprop sys.usb.state ${sys.usb.config}
+
+# MTP + ADB configuration
+on property:sys.usb.ffs.ready=1 && property:sys.usb.config=mtp,adb
+    write /config/usb_gadget/g1/configs/b.1/strings/0x409/configuration "mtp_adb"
+    rm /config/usb_gadget/g1/configs/b.1/f1
+    rm /config/usb_gadget/g1/configs/b.1/f2
+    write /config/usb_gadget/g1/idVendor 0x19D2
+    write /config/usb_gadget/g1/idProduct 0x0245
+    symlink /config/usb_gadget/g1/functions/mtp.gs0 /config/usb_gadget/g1/configs/b.1/f1
+    symlink /config/usb_gadget/g1/functions/ffs.adb /config/usb_gadget/g1/configs/b.1/f2
     write /config/usb_gadget/g1/UDC ${sys.usb.controller}
     setprop sys.usb.state ${sys.usb.config}

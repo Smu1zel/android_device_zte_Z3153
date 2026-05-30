@@ -12,6 +12,27 @@ service zte_loop_check /system/bin/sh -c "if /system/bin/dd if=/dev/block/platfo
     seclabel u:r:recovery:s0
     oneshot
 
+# TEE supplicant (communicates with OP-TEE OS for hardware crypto)
+service tee-supplicant /vendor/bin/tee-supplicant
+    user root
+    group root
+    disabled
+    seclabel u:r:recovery:s0
+
+# Keymaster 4.0 (hardware-backed key derivation for FDE)
+service keymaster-4-0-zte /vendor/bin/hw/android.hardware.keymaster@4.0-service.zte
+    user root
+    group root drmrpc
+    disabled
+    seclabel u:r:recovery:s0
+
+# Gatekeeper (PIN/password verification against hardware)
+service gatekeeper-1-0 /vendor/bin/hw/android.hardware.gatekeeper@1.0-service
+    user root
+    group root
+    disabled
+    seclabel u:r:recovery:s0
+
 # Try early
 on fs
     start zte_loop_check
@@ -20,3 +41,22 @@ on fs
 on post-fs
     start zte_loop_check
 
+on init
+    # TEE device nodes
+    chmod 0666 /dev/tee0
+    chown system system /dev/tee0
+    chmod 0666 /dev/teepriv0
+    chown system system /dev/teepriv0
+
+on post-fs-data
+    # Directories needed by TEE/gatekeeper
+    mkdir /data/vendor/tee 0770 root root
+    mkdir /mnt/vendor/persist/data 0760 system system
+    mkdir /mnt/vendor/persist/data/gatekeeper 0760 system system
+    mkdir /mnt/vendor/persist/data/tee 0760 system system
+
+on boot
+    # Start crypto service chain: TEE first, then keymaster, then gatekeeper
+    start tee-supplicant
+    start keymaster-4-0-zte
+    start gatekeeper-1-0
