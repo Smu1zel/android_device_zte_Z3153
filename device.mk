@@ -17,6 +17,10 @@ PRODUCT_ENFORCE_RRO_TARGETS := *
 PRODUCT_SOONG_NAMESPACES += \
     $(LOCAL_PATH)
 
+# Copy fstab to ramdisk for early mount
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/rootdir/etc/fstab.mt6761:$(TARGET_COPY_OUT_RAMDISK)/fstab.mt6761
+
 # Health
 PRODUCT_PACKAGES += \
     android.hardware.health@2.1-impl \

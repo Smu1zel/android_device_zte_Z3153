@@ -31,7 +31,7 @@ TARGET_SCREEN_WIDTH := 480
 # Kernel
 BOARD_BOOT_HEADER_VERSION := 2
 BOARD_KERNEL_BASE := 0x40000000
-BOARD_KERNEL_CMDLINE := bootopt=64S3,32S1,32S1 androidboot.selinux=permissive
+BOARD_KERNEL_CMDLINE := bootopt=64S3,32S1,32S1 androidboot.selinux=permissive androidboot.fstab_suffix=mt6761
 BOARD_KERNEL_PAGESIZE := 2048
 
 # Specific Memory Offsets
