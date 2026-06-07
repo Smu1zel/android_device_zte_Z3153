@@ -3,6 +3,7 @@
 # Audio
 vendor/bin/hw/android.hardware.audio@5.0-service-mediatek
 vendor/etc/init/android.hardware.audio@5.0-service-mediatek.rc
+vendor/lib/hw/android.hardware.audio@5.0-impl-mediatek.so
 # vendor/lib/hw/android.hardware.audio.effect@5.0-impl.so
 # vendor/lib/hw/audio.primary.default.so
 vendor/lib/hw/audio.primary.mt6761.so
@@ -151,6 +152,8 @@ vendor/etc/audio_param/Volume_ParamUnitDesc.xml
 # Bluetooth
 vendor/bin/hw/android.hardware.bluetooth@1.0-service-mediatek
 vendor/etc/init/android.hardware.bluetooth@1.0-service-mediatek.rc
+vendor/lib/hw/android.hardware.bluetooth@1.0-impl-mediatek.so
+vendor/lib/hw/android.hardware.bluetooth.audio@2.0-impl-mediatek.so
 vendor/lib/libbluetooth_mtk.so
 vendor/lib/libbt-vendor.so
 
@@ -163,6 +166,7 @@ system/lib/libaudiocomponentengine.so:vendor/lib/libaudiocomponentengine.so
 # Camera
 vendor/bin/hw/camerahalserver
 vendor/etc/init/camerahalserver.rc
+vendor/lib/hw/android.hardware.camera.provider@2.4-impl-mediatek.so
 vendor/lib/hw/vendor.mediatek.hardware.camera.bgservice@1.1-impl.so
 vendor/lib/hw/vendor.mediatek.hardware.camera.lomoeffect@1.0-impl.so
 vendor/lib/gc5025_mipi_raw_IdxMgr.so
@@ -370,6 +374,7 @@ vendor/lib/egl/libMEOW_trace.so
 # vendor/lib/hw/android.hardware.memtrack@1.0-impl.so
 # vendor/lib/hw/gralloc.default.so
 vendor/lib/hw/gralloc.mt6761.so
+vendor/lib/hw/android.hardware.graphics.mapper@2.0-impl-2.1.so
 vendor/lib/hw/hwcomposer.mt6761.so
 vendor/lib/hw/memtrack.mt6761.so
 vendor/lib/hw/vendor.mediatek.hardware.mms@1.5-impl.so
@@ -425,6 +430,7 @@ vendor/bin/hw/android.hardware.gnss@2.0-service-mediatek
 vendor/bin/mnld
 vendor/bin/mtk_agpsd
 vendor/etc/init/android.hardware.gnss@2.0-service-mediatek.rc
+vendor/lib/hw/android.hardware.gnss@2.0-impl-mediatek.so
 vendor/etc/init/mtk_agpsd_p.rc
 vendor/lib/hw/gps.default.so
 vendor/lib/libDR.so
@@ -451,6 +457,7 @@ vendor/lib/vendor.mediatek.hardware.keymaster_attestation@1.1.so
 # Light
 vendor/bin/hw/android.hardware.light@2.0-service-mediatek
 vendor/etc/init/android.hardware.light@2.0-service-mediatek.rc
+vendor/lib/hw/android.hardware.light@2.0-impl-mediatek.so
 vendor/lib/hw/lights.mt6761.so
 
 # Local time
@@ -516,6 +523,7 @@ vendor/etc/init/vendor.mediatek.hardware.mtkpower@1.0-init.rc
 vendor/etc/init/vendor.mediatek.hardware.mtkpower@1.0-service.rc
 # vendor/lib/hw/power.default.so
 vendor/lib/hw/power.mt6761.so
+vendor/lib/hw/android.hardware.power@1.3-impl-mediatek.so
 vendor/lib/hw/vendor.mediatek.hardware.mtkpower@1.0-impl.so
 vendor/lib/vendor.mediatek.hardware.mtkpower@1.0.so
 
