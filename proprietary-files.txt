@@ -441,7 +441,8 @@ vendor/bin/hw/vendor.mediatek.hardware.keymaster_attestation@1.1-service
 vendor/etc/init/android.hardware.keymaster@4.0-service.zte.rc
 vendor/etc/init/vendor.mediatek.hardware.keymaster_attestation@1.1-service.rc
 vendor/lib/hw/vendor.mediatek.hardware.keymaster_attestation@1.1-impl.so
-# vendor/lib/libkeymaster4.so
+vendor/lib/libkeymaster4.so
+vendor/lib/libkeymaster4support.so
 vendor/lib/vendor.mediatek.hardware.keymaster_attestation@1.0.so
 vendor/lib/vendor.mediatek.hardware.keymaster_attestation@1.1.so
 
