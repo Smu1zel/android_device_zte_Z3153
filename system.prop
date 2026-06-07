@@ -44,6 +44,8 @@ sys.ipo.disable=1
 sys.ipo.pwrdncap=2
 vendor.rild.libargs=-d /dev/ttyC0
 vendor.rild.libpath=libmtk-ril.so
+vendor.ril.mtk=1
+
 
 # USB and ADB Debugging
 ro.adb.secure=0
