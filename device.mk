@@ -50,7 +50,7 @@ PRODUCT_PACKAGES += \
     android.hardware.audio.effect@5.0-impl \
     libalsautils \
     libnbaio_mono \
-    libtinycompress.vendor
+    libtinycompress
 
 
 # Keymaster
