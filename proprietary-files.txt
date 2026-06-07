@@ -374,7 +374,7 @@ vendor/lib/egl/libMEOW_trace.so
 # vendor/lib/hw/android.hardware.memtrack@1.0-impl.so
 # vendor/lib/hw/gralloc.default.so
 vendor/lib/hw/gralloc.mt6761.so
-vendor/lib/hw/android.hardware.graphics.mapper@2.0-impl-2.1.so
+# vendor/lib/hw/android.hardware.graphics.mapper@2.0-impl-2.1.so
 vendor/lib/hw/hwcomposer.mt6761.so
 vendor/lib/hw/memtrack.mt6761.so
 vendor/lib/hw/vendor.mediatek.hardware.mms@1.5-impl.so
