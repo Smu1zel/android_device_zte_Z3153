@@ -157,6 +157,8 @@ vendor/lib/libbt-vendor.so
 # Bluetooth (A2DP)
 # vendor/lib/hw/audio.bluetooth.default.so
 vendor/lib/libbluetooth_audio_session_mediatek.so
+system/lib/libaudiocompensationfilter.so:vendor/lib/libaudiocompensationfilter.so
+system/lib/libaudiocomponentengine.so:vendor/lib/libaudiocomponentengine.so
 
 # Camera
 vendor/bin/hw/camerahalserver

@@ -36,7 +36,19 @@ PRODUCT_PACKAGES += \
 
 # Graphics
 PRODUCT_PACKAGES += \
-    libdrm.vendor
+    libdrm.vendor \
+    libsensorndkbridge.vendor \
+    android.hardware.graphics.allocator@2.0-impl \
+    android.hardware.graphics.allocator@2.0-service \
+    android.hardware.graphics.composer@2.1-impl \
+    android.hardware.graphics.composer@2.1-service
+
+# Gatekeeper / Memtrack
+PRODUCT_PACKAGES += \
+    android.hardware.gatekeeper@1.0-impl \
+    android.hardware.gatekeeper@1.0-service \
+    android.hardware.memtrack@1.0-impl \
+    android.hardware.memtrack@1.0-service
 
 # Rootdir scripts (Built via rootdir/Android.bp)
 PRODUCT_PACKAGES += \
