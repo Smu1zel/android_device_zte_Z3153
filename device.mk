@@ -27,6 +27,11 @@ PRODUCT_PACKAGES += \
     android.hardware.health@2.1-impl.recovery \
     android.hardware.health@2.1-service
 
+# Audio
+PRODUCT_PACKAGES += \
+    android.hardware.audio.common-util.vendor \
+    android.hardware.audio.common@5.0-util.vendor
+
 # Keymaster
 PRODUCT_PACKAGES += \
     libkeymaster4.vendor \
