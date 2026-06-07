@@ -31,7 +31,9 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     android.hardware.audio.common-util.vendor \
     android.hardware.audio.common@5.0-util.vendor \
-    android.hardware.audio.effect@5.0-impl
+    android.hardware.audio.effect@5.0-impl \
+    libalsautils \
+    libnbaio_mono
 
 # Keymaster
 PRODUCT_PACKAGES += \
