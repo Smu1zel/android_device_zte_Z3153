@@ -34,6 +34,10 @@ PRODUCT_PACKAGES += \
     libpuresoftkeymasterdevice.vendor \
     libsoft_attestation_cert.vendor
 
+# Graphics
+PRODUCT_PACKAGES += \
+    libdrm.vendor
+
 # Rootdir scripts (Built via rootdir/Android.bp)
 PRODUCT_PACKAGES += \
     disable_tee_ta_log.sh \
