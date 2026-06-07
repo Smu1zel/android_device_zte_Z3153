@@ -27,6 +27,11 @@ PRODUCT_PACKAGES += \
     android.hardware.health@2.1-impl.recovery \
     android.hardware.health@2.1-service
 
+# Keymaster
+PRODUCT_PACKAGES += \
+    libkeymaster4 \
+    libkeymaster4support
+
 # Rootdir scripts (Built via rootdir/Android.bp)
 PRODUCT_PACKAGES += \
     disable_tee_ta_log.sh \
