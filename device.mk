@@ -29,8 +29,10 @@ PRODUCT_PACKAGES += \
 
 # Keymaster
 PRODUCT_PACKAGES += \
-    libkeymaster4 \
-    libkeymaster4support
+    libkeymaster4.vendor \
+    libkeymaster4support.vendor \
+    libpuresoftkeymasterdevice.vendor \
+    libsoft_attestation_cert.vendor
 
 # Rootdir scripts (Built via rootdir/Android.bp)
 PRODUCT_PACKAGES += \
