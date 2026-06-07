@@ -39,7 +39,9 @@ PRODUCT_COPY_FILES += \
 
 # Networking
 PRODUCT_PACKAGES += \
-    libwifi-hal
+    libwifi-hal \
+    libkeystore-wifi-hidl \
+    libkeystore-engine-wifi-hidl
 
 # Health
 PRODUCT_PACKAGES += \
