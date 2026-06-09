@@ -105,6 +105,9 @@ TARGET_RECOVERY_PIXEL_FORMAT := "BGRA_8888"
 
 # Recovery Fstab
 TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/recovery.fstab
+
+# SELinux / SEPolicy
+-include device/mediatek/sepolicy/sepolicy.mk
 BOARD_USES_FULL_RECOVERY_IMAGE := true
 
 # ALLOW_MISSING_DEPENDENCIES := true
