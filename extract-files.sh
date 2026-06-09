@@ -30,6 +30,14 @@ source "$HELPER"
 # Default to sanitizing etc.
 CLEAN_OBJS=true
 
+function blob_fixup() {
+    case "${1}" in
+        vendor/bin/hw/android.hardware.wifi@1.0-service-lazy-mediatek)
+            "${PATCHELF}" --replace-needed "libwifi-hal.so" "libwifi-hal-mtk.so" "${2}"
+            ;;
+    esac
+}
+
 while [ "${#}" -gt 0 ]; do
     case "${1}" in
         -n | --no-cleanup )
