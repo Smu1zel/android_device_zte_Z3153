@@ -39,7 +39,6 @@ PRODUCT_COPY_FILES += \
 
 # Networking
 PRODUCT_PACKAGES += \
-    libwifi-hal \
     libkeystore-wifi-hidl \
     libkeystore-engine-wifi-hidl
 

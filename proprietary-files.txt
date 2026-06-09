@@ -636,7 +636,7 @@ vendor/etc/init/init.wlan_drv.rc
 vendor/etc/init/wlan_assistant.rc
 # vendor/lib/libkeystore-engine-wifi-hidl.so
 # vendor/lib/libkeystore-wifi-hidl.so
-# vendor/lib/libwifi-hal.so
+vendor/lib/libwifi-hal.so
 vendor/lib/vendor.mediatek.hardware.wifi.hostapd@2.0.so
 vendor/lib/vendor.mediatek.hardware.wifi.supplicant@2.0.so
 vendor/lib/vendor.mediatek.hardware.wifi.supplicant@2.1.so
