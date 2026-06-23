@@ -4,6 +4,8 @@
 # SPDX-License-Identifier: Apache-2.0
 #
 
+LOCAL_PATH := device/zte/Z3153
+
 # Product characteristics
 PRODUCT_CHARACTERISTICS := default
 
