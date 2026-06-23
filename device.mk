@@ -43,8 +43,9 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/prebuilt/ztecharger:$(TARGET_COPY_OUT_VENDOR)/bin/ztecharger \
     $(LOCAL_PATH)/rootdir/etc/init.ztecharger.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/init.ztecharger.rc
 
-# Copy ztecharger resources to ramdisk
+# Copy ztecharger resources to system and ramdisk
 PRODUCT_COPY_FILES += \
+    $(foreach f,$(wildcard $(LOCAL_PATH)/rootdir/res/images/ztecharger/*),$(f):$(TARGET_COPY_OUT_SYSTEM)/res/images/ztecharger/$(notdir $(f))) \
     $(foreach f,$(wildcard $(LOCAL_PATH)/rootdir/res/images/ztecharger/*),$(f):$(TARGET_COPY_OUT_RAMDISK)/res/images/ztecharger/$(notdir $(f)))
 
 
