@@ -37,7 +37,14 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.software.midi.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.software.midi.xml \
     frameworks/native/data/etc/android.software.sip.voip.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.software.sip.voip.xml \
     frameworks/native/data/etc/android.hardware.usb.host.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.usb.host.xml \
-    frameworks/native/data/etc/android.hardware.usb.accessory.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.usb.accessory.xml
+    frameworks/native/data/etc/android.hardware.usb.accessory.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.usb.accessory.xml \
+    $(LOCAL_PATH)/prebuilt/ztecharger:$(TARGET_COPY_OUT_VENDOR)/bin/ztecharger \
+    $(LOCAL_PATH)/rootdir/etc/init.ztecharger.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/init.ztecharger.rc
+
+# Copy ztecharger resources to ramdisk
+PRODUCT_COPY_FILES += \
+    $(foreach f,$(wildcard $(LOCAL_PATH)/rootdir/res/images/ztecharger/*),$(f):$(TARGET_COPY_OUT_RAMDISK)/res/images/ztecharger/$(notdir $(f)))
+
 
 # Networking
 PRODUCT_PACKAGES += \

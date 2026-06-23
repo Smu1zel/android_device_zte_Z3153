@@ -1,0 +1,11 @@
+service ztecharger /vendor/bin/ztecharger
+    class charger
+    user root
+    group root
+    seclabel u:r:ueventd:s0
+
+# Disable generic AOSP charger to avoid screen rendering conflicts
+service charger /system/bin/charger
+    class charger
+    disabled
+    override
