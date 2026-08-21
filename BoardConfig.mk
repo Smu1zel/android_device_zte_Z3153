@@ -118,16 +118,6 @@ VENDOR_SECURITY_PATCH := 2021-08-05
 # VINTF Manifest
 DEVICE_MANIFEST_FILE += $(DEVICE_PATH)/manifest.xml
 
-# Kernel Modules
-BOARD_VENDOR_KERNEL_MODULES += \
-    vendor/zte/Z3153/proprietary/vendor/lib/modules/bt_drv.ko \
-    vendor/zte/Z3153/proprietary/vendor/lib/modules/fmradio_drv.ko \
-    vendor/zte/Z3153/proprietary/vendor/lib/modules/fpsgo.ko \
-    vendor/zte/Z3153/proprietary/vendor/lib/modules/gps_drv.ko \
-    vendor/zte/Z3153/proprietary/vendor/lib/modules/met.ko \
-    vendor/zte/Z3153/proprietary/vendor/lib/modules/wlan_drv_gen4m.ko \
-    vendor/zte/Z3153/proprietary/vendor/lib/modules/wmt_chrdev_wifi.ko \
-    vendor/zte/Z3153/proprietary/vendor/lib/modules/wmt_drv.ko
 
 # Inherit vendor configurations
 -include vendor/zte/Z3153/BoardConfigVendor.mk
