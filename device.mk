@@ -49,59 +49,35 @@ PRODUCT_COPY_FILES += \
     $(foreach f,$(wildcard $(LOCAL_PATH)/rootdir/res/images/ztecharger/*),$(f):$(TARGET_COPY_OUT_RAMDISK)/res/images/ztecharger/$(notdir $(f)))
 
 
-# Networking
+# AIDL Services & HALs
 PRODUCT_PACKAGES += \
-    libwifi-hal \
-    libkeystore-wifi-hidl \
-    libkeystore-engine-wifi-hidl
+    android.hardware.health-service.example \
+    android.hardware.health-service.example.recovery \
+    android.hardware.lights-service.lineage \
+    android.hardware.vibrator-service.lineage \
+    android.hardware.power-service-lineage \
+    android.hardware.memtrack-service.lineage
 
-# Health
+# Vendor Compatibility Shims
 PRODUCT_PACKAGES += \
-    android.hardware.health@2.0-impl \
-    android.hardware.health@2.0-impl.recovery \
-    android.hardware.health@2.0-service
-
-# Audio
-PRODUCT_PACKAGES += \
-    android.hardware.audio.common-util.vendor \
-    android.hardware.audio.common@5.0-util.vendor \
-    android.hardware.audio.effect@5.0-impl \
-    libalsautils \
-    libnbaio_mono \
-    libtinyxml \
-    libtinycompress
-
-# Keymaster
-PRODUCT_PACKAGES += \
-    libkeymaster4.vendor \
-    libkeymaster4support.vendor \
-    libpuresoftkeymasterdevice.vendor \
-    libsoft_attestation_cert.vendor
+    libshim_gui \
+    libshim_camera \
+    libshim_netutils \
+    libshim_omx
 
 # Graphics
 PRODUCT_PACKAGES += \
     libdrm.vendor \
-    libsensorndkbridge \
-    android.hardware.graphics.allocator@2.0-impl \
-    android.hardware.graphics.allocator@2.0-service \
-    android.hardware.graphics.mapper@2.0-impl \
-    android.hardware.graphics.mapper@2.1-impl \
-    android.hardware.graphics.composer@2.1-impl \
-    android.hardware.graphics.composer@2.1-service
+    libsensorndkbridge
 
-# Gatekeeper / Memtrack
+# Audio
 PRODUCT_PACKAGES += \
-    android.hardware.gatekeeper@1.0-impl \
-    android.hardware.gatekeeper@1.0-service \
-    android.hardware.memtrack@1.0-impl \
-    android.hardware.memtrack@1.0-service
+    libtinyxml \
+    libtinycompress
 
-# Vibrator / Thermal
-PRODUCT_PACKAGES += \
-    android.hardware.vibrator@1.0-impl \
-    android.hardware.vibrator@1.0-service \
-    android.hardware.thermal@1.0-impl \
-    android.hardware.thermal@1.0-service
+# Low-RAM Optimization
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.config.low_ram=true
 
 
 # Rootdir scripts (Built via rootdir/Android.bp)

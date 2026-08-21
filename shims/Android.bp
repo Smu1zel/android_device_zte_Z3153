@@ -1,0 +1,39 @@
+//
+// Copyright (C) 2022-2026 The LineageOS Project
+//
+// SPDX-License-Identifier: Apache-2.0
+//
+
+cc_library_shared {
+    name: "libshim_gui",
+    srcs: ["libshim_gui/GraphicBuffer.cpp"],
+    shared_libs: [
+        "libui",
+        "libutils",
+    ],
+    vendor: true,
+}
+
+cc_library_shared {
+    name: "libshim_camera",
+    srcs: ["libshim_camera/CameraMetadata.cpp"],
+    shared_libs: [
+        "libutils",
+    ],
+    vendor: true,
+}
+
+cc_library_shared {
+    name: "libshim_netutils",
+    srcs: ["libshim_netutils/netutils.c"],
+    vendor: true,
+}
+
+cc_library_shared {
+    name: "libshim_omx",
+    srcs: ["libshim_omx/MediaBuffer.cpp"],
+    shared_libs: [
+        "libstagefright_foundation",
+    ],
+    vendor: true,
+}
