@@ -58,12 +58,15 @@ PRODUCT_PACKAGES += \
     android.hardware.power-service-lineage \
     android.hardware.memtrack-service.lineage
 
-# Vendor Compatibility Shims
+# Vendor Compatibility Shims (Device-specific & LineageOS Standard)
 PRODUCT_PACKAGES += \
     libshim_gui \
     libshim_camera \
     libshim_netutils \
-    libshim_omx
+    libshim_omx \
+    libcamera_metadata_shim \
+    libui_shim \
+    libprocessgroup_shim
 
 # Graphics
 PRODUCT_PACKAGES += \

@@ -5,6 +5,7 @@
  */
 
 #include <stdint.h>
+#include <new>
 #include <string>
 #include <ui/GraphicBuffer.h>
 #include <ui/PixelFormat.h>

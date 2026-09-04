@@ -4,6 +4,7 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
+#include <new>
 #include <stddef.h>
 #include <stdint.h>
 #include <media/stagefright/MediaBuffer.h>
