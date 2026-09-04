@@ -4,6 +4,10 @@
 # SPDX-License-Identifier: Apache-2.0
 #
 
+from extract_utils.fixups_blob import (
+    blob_fixup,
+    blob_fixups_user_type,
+)
 from extract_utils.main import (
     ExtractUtils,
     ExtractUtilsModule,
@@ -11,11 +15,25 @@ from extract_utils.main import (
 
 namespace_imports = [
     'device/zte/Z3153',
+    'hardware/mediatek',
 ]
+
+blob_fixups: blob_fixups_user_type = {
+    'vendor/bin/hw/android.hardware.wifi@1.0-service-lazy-mediatek': blob_fixup()
+        .replace_needed('libwifi-hal.so', 'libwifi-hal-mtk.so'),
+    'vendor/bin/netdagent': blob_fixup()
+        .add_needed('libshim_netutils.so'),
+    'vendor/lib/hw/camera.mt6761.so': blob_fixup()
+        .add_needed('libshim_camera.so')
+        .add_needed('libshim_gui.so'),
+    'vendor/lib/libvcodec_oal.so': blob_fixup()
+        .add_needed('libshim_omx.so'),
+}
 
 module = ExtractUtilsModule(
     'Z3153',
     'zte',
+    blob_fixups=blob_fixups,
     namespace_imports=namespace_imports,
 )
 
