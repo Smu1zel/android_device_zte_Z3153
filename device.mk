@@ -81,6 +81,9 @@ PRODUCT_PACKAGES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.config.low_ram=true
 
+# ART - Disable UFFD GC on kernel 4.9 (requires kernel 5.4+ / userfaultfd MREMAP_DONTUNMAP)
+PRODUCT_ENABLE_UFFD_GC := false
+
 
 # Rootdir scripts (Built via rootdir/Android.bp)
 PRODUCT_PACKAGES += \
