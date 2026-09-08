@@ -52,11 +52,11 @@ PRODUCT_COPY_FILES += \
 # AIDL Services & HALs
 PRODUCT_PACKAGES += \
     android.hardware.health-service.example \
-    android.hardware.health-service.example.recovery \
-    android.hardware.lights-service.lineage \
-    android.hardware.vibrator-service.lineage \
-    android.hardware.power-service-lineage \
-    android.hardware.memtrack-service.lineage
+    android.hardware.health-service.example_recovery \
+    android.hardware.lights-service.example \
+    android.hardware.vibrator-service.example \
+    android.hardware.power-service.example \
+    android.hardware.memtrack-service.example
 
 # Vendor Compatibility Shims (Device-specific & LineageOS Standard)
 PRODUCT_PACKAGES += \
