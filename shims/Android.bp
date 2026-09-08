@@ -28,12 +28,3 @@ cc_library_shared {
     srcs: ["libshim_netutils/netutils.c"],
     vendor: true,
 }
-
-cc_library_shared {
-    name: "libshim_omx",
-    srcs: ["libshim_omx/MediaBuffer.cpp"],
-    shared_libs: [
-        "libstagefright_foundation",
-    ],
-    vendor: true,
-}

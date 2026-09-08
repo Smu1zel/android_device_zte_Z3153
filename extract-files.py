@@ -23,11 +23,14 @@ blob_fixups: blob_fixups_user_type = {
         .replace_needed('libwifi-hal.so', 'libwifi-hal-mtk.so'),
     'vendor/bin/netdagent': blob_fixup()
         .add_needed('libshim_netutils.so'),
-    'vendor/lib/hw/camera.mt6761.so': blob_fixup()
-        .add_needed('libshim_camera.so')
+    'vendor/lib/libmtk-ril.so': blob_fixup()
+        .add_needed('libshim_netutils.so'),
+    'vendor/lib/libmtknetutils.so': blob_fixup()
+        .add_needed('libshim_netutils.so'),
+    'vendor/lib/libcam.hal3a.v3.so': blob_fixup()
         .add_needed('libshim_gui.so'),
-    'vendor/lib/libvcodec_oal.so': blob_fixup()
-        .add_needed('libshim_omx.so'),
+    'vendor/lib/libMtkOmxVenc.so': blob_fixup()
+        .add_needed('libshim_gui.so'),
 }
 
 module = ExtractUtilsModule(

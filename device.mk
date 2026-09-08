@@ -63,7 +63,6 @@ PRODUCT_PACKAGES += \
     libshim_gui \
     libshim_camera \
     libshim_netutils \
-    libshim_omx \
     libcamera_metadata_shim \
     libui_shim \
     libprocessgroup_shim
