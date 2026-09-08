@@ -1065,8 +1065,8 @@ vendor/lib/libpowerhal.so
 vendor/lib/libpq_cust_base.so
 vendor/lib/librgbwlightsensor.so
 vendor/lib/libsensor_custom.so
-vendor/lib/libskia.so
-vendor/lib/libskia_watermark.so
+# vendor/lib/libskia.so
+# vendor/lib/libskia_watermark.so
 vendor/lib/libspeech_enh_lib.so
 vendor/lib/libspeechparser_vendor.so
 vendor/lib/libss-base.so
