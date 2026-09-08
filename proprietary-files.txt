@@ -668,7 +668,7 @@ vendor/bin/dmc_core
 vendor/bin/dtc_vendor
 # vendor/bin/dumpsys
 vendor/bin/em_hidl
-vendor/bin/factory
+# vendor/bin/factory
 vendor/bin/jpegtool
 vendor/bin/lbs_hidl_service
 vendor/bin/loghidlvendorservice
@@ -1040,7 +1040,7 @@ vendor/lib/libh264enc_sa.ca7.so
 vendor/lib/libhevce_sb.ca7.android.so
 vendor/lib/libicd_decoder.so
 vendor/lib/libkmsetkey.so
-vendor/lib/libminiui.so
+# vendor/lib/libminiui.so
 vendor/lib/libmmprofile.so
 vendor/lib/libmnetlink_v104.so
 vendor/lib/libmp4enc_xa.ca7.so
