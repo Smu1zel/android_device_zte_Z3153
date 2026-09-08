@@ -31,6 +31,12 @@ blob_fixups: blob_fixups_user_type = {
         .add_needed('libshim_gui.so'),
     'vendor/lib/libMtkOmxVenc.so': blob_fixup()
         .add_needed('libshim_gui.so'),
+    (
+        'vendor/bin/hw/android.hardware.audio@5.0-service-mediatek',
+        'vendor/lib/hw/audio.primary.mt6761.so',
+        'vendor/lib/hw/sound_trigger.primary.mt6761.so',
+    ): blob_fixup()
+        .remove_needed('android.hardware.bluetooth.a2dp@1.0.so'),
 }
 
 module = ExtractUtilsModule(
