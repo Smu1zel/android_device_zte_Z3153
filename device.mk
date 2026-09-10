@@ -77,8 +77,7 @@ PRODUCT_PACKAGES += \
 
 # Wi-Fi
 PRODUCT_PACKAGES += \
-    wpa_supplicant \
-    wpa_supplicant.conf
+    wpa_supplicant
 
 # Graphics
 PRODUCT_PACKAGES += \
