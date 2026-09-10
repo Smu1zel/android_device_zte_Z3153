@@ -6,3 +6,31 @@
 
 soong_namespace {
 }
+
+prebuilt_hidl_interfaces {
+    name: "hidl_mtk_interfaces",
+    interfaces: [
+        "vendor.mediatek.hardware.apmonitor@2.0",
+        "vendor.mediatek.hardware.camera.bgservice@1.1",
+        "vendor.mediatek.hardware.dmc@1.0",
+        "vendor.mediatek.hardware.engineermode@1.2",
+        "vendor.mediatek.hardware.keymaster_attestation@1.1",
+        "vendor.mediatek.hardware.lbs@1.0",
+        "vendor.mediatek.hardware.log@1.0",
+        "vendor.mediatek.hardware.mdmonitor@1.0",
+        "vendor.mediatek.hardware.mms@1.5",
+        "vendor.mediatek.hardware.modemdbfilter@1.0",
+        "vendor.mediatek.hardware.mtkcodecservice@1.1",
+        "vendor.mediatek.hardware.mtkpower@1.0",
+        "vendor.mediatek.hardware.mtkradioex@1.6",
+        "vendor.mediatek.hardware.netdagent@1.0",
+        "vendor.mediatek.hardware.nvram@1.1",
+        "vendor.mediatek.hardware.power@2.1",
+        "vendor.mediatek.hardware.pq@2.3",
+        "vendor.mediatek.hardware.radio_op@2.0",
+        "vendor.mediatek.hardware.wifi.hostapd@2.0",
+        "vendor.mediatek.hardware.wifi.supplicant@2.0",
+        "vendor.zte.fmr@1.0",
+        "vendor.zte.subsys@1.0",
+    ],
+}
