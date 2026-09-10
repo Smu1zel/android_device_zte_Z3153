@@ -830,7 +830,7 @@ vendor/lib/libtqvalidate.so
 vendor/lib/libtranslator_mdmi_v2.8.2.so
 vendor/lib/libtranslator_utils.so
 vendor/lib/libufwriter.so
-vendor/lib/libutinterface_custom_md.so
+vendor/lib/libutinterface_custom_md.so;DISABLE_CHECKELF
 vendor/lib/libutinterface_md.so
 vendor/lib/libvendorcfg_vendor.so
 vendor/lib/libvendorutils.so

@@ -60,8 +60,6 @@ blob_fixups: blob_fixups_user_type = {
         .add_needed('libbase_shim.so'),
     'vendor/lib/libMtkOmxVdecEx.so': blob_fixup()
         .add_needed('libui_shim.so'),
-    'vendor/lib/libutinterface_custom_md.so': blob_fixup()
-        .add_needed('libutinterface_md.so'),
     'vendor/lib/libmnl.so': blob_fixup()
         .add_needed('libcutils.so'),
     'vendor/lib/hw/gatekeeper.zte.so': blob_fixup()
