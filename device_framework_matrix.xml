@@ -2,6 +2,7 @@
     <hal format="hidl" optional="true">
         <name>android.hardware.radio</name>
         <version>1.2</version>
+        <version>1.4</version>
         <interface>
             <name>IRadio</name>
             <instance>em1</instance>
@@ -11,14 +12,6 @@
         </interface>
         <interface>
             <name>ISap</name>
-            <instance>slot1</instance>
-        </interface>
-        <version>1.4</version>
-        <interface>
-            <name>IRadio</name>
-            <instance>em1</instance>
-            <instance>imsAospSlot1</instance>
-            <instance>se1</instance>
             <instance>slot1</instance>
         </interface>
     </hal>
