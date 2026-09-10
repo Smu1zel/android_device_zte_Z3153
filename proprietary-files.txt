@@ -370,11 +370,7 @@ vendor/lib/mediadrm/libwvdrmengine.so
 vendor/lib/libwvhidl.so
 
 # Gatekeeper
-vendor/lib/hw/gatekeeper.default.so
-vendor/lib/hw/gatekeeper.k61v1_32_bsp_hdp.so
-vendor/lib/hw/gatekeeper.mt6761.so
-vendor/lib/hw/gatekeeper.zte.so
-vendor/lib/hw/libSoftGatekeeper.so
+vendor/lib/hw/gatekeeper.zte.so;SYMLINK=gatekeeper.mt6761.so
 vendor/lib/libteec.so
 
 # GNSS
@@ -411,7 +407,6 @@ vendor/lib/hw/lights.mt6761.so
 # Local time
 
 # Media
-system/lib/libstagefright_wfd_mtk.so
 vendor/etc/seccomp_policy/mediacodec.policy
 vendor/lib/libJpgDecPipe.so
 vendor/lib/libMtkOmxAdpcmDec.so
@@ -557,7 +552,7 @@ vendor/etc/init/android.hardware.usb@1.1-service-mediatek.rc
 # Wi-Fi
 vendor/bin/hw/android.hardware.wifi@1.0-service-lazy-mediatek;DISABLE_CHECKELF
 vendor/bin/hw/hostapd
-vendor/bin/hw/wpa_supplicant
+# vendor/bin/hw/wpa_supplicant
 vendor/bin/hostapd_cli
 vendor/bin/wlan_assistant
 vendor/bin/wmt_launcher
@@ -612,7 +607,6 @@ vendor/bin/mtkcam-debug
 vendor/bin/muxreport
 vendor/bin/netdagent
 vendor/bin/netdc
-vendor/bin/pkm_service
 vendor/bin/rttv
 vendor/bin/setlog
 vendor/bin/ssdaemon_vendor
@@ -661,7 +655,6 @@ vendor/etc/init/md_monitor.rc
 vendor/etc/init/modemdbfilter_service.rc
 vendor/etc/init/muxreport.rc
 vendor/etc/init/netdagent.rc
-vendor/etc/init/pkm_service.rc
 vendor/etc/init/ssdaemon_vendor.rc
 vendor/etc/init/tee-supplicant.rc
 vendor/etc/init/touchscreen.rc
@@ -817,10 +810,8 @@ vendor/lib/libmtkperf_client_vendor.so
 vendor/lib/libmtkshifter_vendor.so
 vendor/lib/libmtksysutils.so
 vendor/lib/libmtktinyxml.so
-vendor/lib/libneuropilot_hal_utils.so
 vendor/lib/libopenshort.so
 vendor/lib/libperfctl_vendor.so
-vendor/lib/libpkm.so
 vendor/lib/libpowerhal.so
 vendor/lib/libpq_cust_base.so
 vendor/lib/librgbwlightsensor.so
@@ -838,7 +829,6 @@ vendor/lib/libtpdlibrary.so
 vendor/lib/libtqvalidate.so
 vendor/lib/libtranslator_mdmi_v2.8.2.so
 vendor/lib/libtranslator_utils.so
-vendor/lib/libudf.so
 vendor/lib/libufwriter.so
 vendor/lib/libutinterface_custom_md.so
 vendor/lib/libutinterface_md.so
