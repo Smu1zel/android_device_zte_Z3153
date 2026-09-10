@@ -64,6 +64,7 @@ PRODUCT_PACKAGES += \
     libshim_gui \
     libshim_camera \
     libshim_netutils \
+    libshim_bt_a2dp \
     libcamera_metadata_shim \
     libui_shim \
     libprocessgroup_shim
@@ -75,6 +76,7 @@ PRODUCT_PACKAGES += \
 
 # Audio
 PRODUCT_PACKAGES += \
+    android.hardware.audio.common@5.0-util \
     libtinyxml \
     libtinycompress
 

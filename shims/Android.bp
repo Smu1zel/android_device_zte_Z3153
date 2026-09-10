@@ -28,3 +28,10 @@ cc_library_shared {
     srcs: ["libshim_netutils/netutils.c"],
     vendor: true,
 }
+
+cc_library_shared {
+    name: "libshim_bt_a2dp",
+    srcs: ["libshim_bt_a2dp/bt_a2dp.cpp"],
+    vendor: true,
+}
+
