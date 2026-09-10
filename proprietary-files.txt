@@ -382,8 +382,8 @@ vendor/lib/hw/android.hardware.gnss@2.0-impl-mediatek.so
 vendor/etc/init/mtk_agpsd_p.rc
 vendor/lib/hw/gps.default.so
 vendor/lib/libDR.so
-vendor/lib/libgeofence.so
-vendor/lib/libmnl.so
+vendor/lib/libgeofence.so;DISABLE_CHECKELF
+vendor/lib/libmnl.so;DISABLE_CHECKELF
 
 # Health
 vendor/bin/fuelgauged

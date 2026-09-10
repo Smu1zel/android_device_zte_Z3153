@@ -16,7 +16,10 @@ cc_library_shared {
 
 cc_library_shared {
     name: "libshim_camera",
-    srcs: ["libshim_camera/CameraMetadata.cpp"],
+    srcs: [
+        "libshim_camera/CameraMetadata.cpp",
+        "libshim_camera/PropertyMap.cpp",
+    ],
     shared_libs: [
         "libutils",
     ],
@@ -38,6 +41,24 @@ cc_library_shared {
 cc_library_shared {
     name: "libshim_audio",
     srcs: ["libshim_audio/audio.cpp"],
+    vendor: true,
+}
+
+cc_library_shared {
+    name: "libshim_gatekeeper",
+    srcs: ["libshim_gatekeeper/gatekeeper.cpp"],
+    shared_libs: [
+        "libgatekeeper",
+    ],
+    vendor: true,
+}
+
+cc_library_shared {
+    name: "libshim_unwind",
+    srcs: ["libshim_unwind/unwind.cpp"],
+    shared_libs: [
+        "libbase",
+    ],
     vendor: true,
 }
 

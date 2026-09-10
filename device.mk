@@ -17,7 +17,8 @@ PRODUCT_ENFORCE_RRO_TARGETS := *
 
 # Soong namespaces
 PRODUCT_SOONG_NAMESPACES += \
-    $(LOCAL_PATH)
+    $(LOCAL_PATH) \
+    hardware/lineage/compat
 
 # Permissions / Features
 PRODUCT_COPY_FILES += \
@@ -66,9 +67,19 @@ PRODUCT_PACKAGES += \
     libshim_netutils \
     libshim_bt_a2dp \
     libshim_audio \
+    libshim_gatekeeper \
+    libshim_unwind \
     libcamera_metadata_shim \
     libui_shim \
+    libbase_shim \
+    android.hardware.sensors@1.0-convert-shared \
+    libprotobuf-cpp-lite-v29 \
     libprocessgroup_shim
+
+# Wi-Fi
+PRODUCT_PACKAGES += \
+    wpa_supplicant \
+    wpa_supplicant.conf
 
 # Graphics
 PRODUCT_PACKAGES += \
