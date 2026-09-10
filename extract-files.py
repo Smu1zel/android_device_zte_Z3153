@@ -35,9 +35,12 @@ blob_fixups: blob_fixups_user_type = {
         .replace_needed('android.hardware.bluetooth.a2dp@1.0.so', 'libshim_bt_a2dp.so'),
     'vendor/lib/hw/android.hardware.audio@5.0-impl-mediatek.so': blob_fixup()
         .add_needed('libshim_audio.so'),
-    'vendor/lib/libwifi-hal-mtk.so': blob_fixup()
-        .fix_soname(),
-    'vendor/lib/hw/gralloc.mt6761.so': blob_fixup()
+    (
+        'vendor/lib/libakm.so',
+        'vendor/lib/libspeech_enh_lib.so',
+        'vendor/lib/libwifi-hal-mtk.so',
+        'vendor/lib/hw/gralloc.mt6761.so',
+    ): blob_fixup()
         .fix_soname(),
     'vendor/lib/hw/audio.primary.mt6761.so': blob_fixup()
         .add_needed('libshim_audio.so')
