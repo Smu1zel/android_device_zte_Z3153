@@ -35,3 +35,9 @@ cc_library_shared {
     vendor: true,
 }
 
+cc_library_shared {
+    name: "libshim_audio",
+    srcs: ["libshim_audio/audio.cpp"],
+    vendor: true,
+}
+

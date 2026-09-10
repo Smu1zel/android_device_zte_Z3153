@@ -65,6 +65,7 @@ PRODUCT_PACKAGES += \
     libshim_camera \
     libshim_netutils \
     libshim_bt_a2dp \
+    libshim_audio \
     libcamera_metadata_shim \
     libui_shim \
     libprocessgroup_shim
