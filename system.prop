@@ -45,12 +45,3 @@ sys.ipo.pwrdncap=2
 vendor.rild.libargs=-d /dev/ttyC0
 vendor.rild.libpath=libmtk-ril.so
 vendor.ril.mtk=1
-
-
-# USB and ADB Debugging
-ro.adb.secure=0
-ro.debuggable=1
-persist.sys.usb.config=adb
-sys.usb.config=adb
-sys.usb.ffs.aio_compat=1
-sys.usb.controller=musb-hdrc

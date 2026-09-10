@@ -110,6 +110,11 @@ PRODUCT_PACKAGES += \
     meta_init.rc \
     multi_init.rc
 
+# Disable RSA auth popup and force ADB enabled by default
+# This is temporary.
+PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
+    ro.adb.secure=0 \
+    persist.sys.usb.config=adb
 
 # Inherit proprietary files
 $(call inherit-product, vendor/zte/Z3153/Z3153-vendor.mk)
