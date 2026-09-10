@@ -18,7 +18,7 @@ PRODUCT_ENFORCE_RRO_TARGETS := *
 # Soong namespaces
 PRODUCT_SOONG_NAMESPACES += \
     $(LOCAL_PATH) \
-    hardware/lineage/compat
+    hardware/mediatek
 
 # Permissions / Features
 PRODUCT_COPY_FILES += \

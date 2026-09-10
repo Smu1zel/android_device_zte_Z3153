@@ -17,7 +17,6 @@ from extract_utils.main import (
 namespace_imports = [
     'device/zte/Z3153',
     'hardware/mediatek',
-    'hardware/lineage/compat',
 ]
 
 blob_fixups: blob_fixups_user_type = {
