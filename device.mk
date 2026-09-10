@@ -41,8 +41,7 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.usb.host.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.usb.host.xml \
     frameworks/native/data/etc/android.hardware.usb.accessory.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.usb.accessory.xml \
     $(LOCAL_PATH)/prebuilt/ztecharger:$(TARGET_COPY_OUT_VENDOR)/bin/ztecharger \
-    $(LOCAL_PATH)/rootdir/etc/init.ztecharger.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/init.ztecharger.rc \
-    $(LOCAL_PATH)/compatibility_matrix.4.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/vintf/compatibility_matrix.4.xml
+    $(LOCAL_PATH)/rootdir/etc/init.ztecharger.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/init.ztecharger.rc
 
 # Copy ztecharger resources to system and ramdisk
 PRODUCT_COPY_FILES += \
@@ -57,7 +56,8 @@ PRODUCT_PACKAGES += \
     android.hardware.lights-service.example \
     android.hardware.vibrator-service.example \
     android.hardware.power-service.example \
-    android.hardware.memtrack-service.example
+    android.hardware.memtrack-service.example \
+    compatibility_matrix.4.xml
 
 # Vendor Compatibility Shims (Device-specific & LineageOS Standard)
 PRODUCT_PACKAGES += \
