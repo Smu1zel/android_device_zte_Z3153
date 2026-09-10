@@ -657,8 +657,8 @@ vendor/bin/aee_aedv
 vendor/bin/aee_archivev
 vendor/bin/aee_dumpstatev
 vendor/bin/aeev
-vendor/bin/atcid
-vendor/bin/audiocmdservice_atci
+# vendor/bin/atcid
+# vendor/bin/audiocmdservice_atci
 vendor/bin/autobt
 vendor/bin/battery_record_daemon
 # vendor/bin/bc
@@ -709,8 +709,8 @@ vendor/etc/firmware/customfilter/catcher_filter_1_ulwctg_n_meta.bin
 vendor/etc/firmware/catcher_filter_1_ulwctg_n.bin
 vendor/etc/firmware/em_filter_1_ulwctg_n.bin
 vendor/etc/init/aee_aedv.rc
-vendor/etc/init/atcid.rc
-vendor/etc/init/audiocmdservice_atci.rc
+# vendor/etc/init/atcid.rc
+# vendor/etc/init/audiocmdservice_atci.rc
 vendor/etc/init/bootperf.rc
 vendor/etc/init/dmc_core.rc
 vendor/etc/init/em_hidl_user.rc
@@ -1099,7 +1099,7 @@ vendor/lib/sp2609_mipi_raw_tuning.so
 vendor/lib/sp5506_mipi_raw_tuning.so
 vendor/lib/st55a_mipi_raw_tuning.so
 vendor/lib/vendor.mediatek.hardware.apmonitor@2.0.so
-vendor/lib/vendor.mediatek.hardware.atci@1.0.so
+# vendor/lib/vendor.mediatek.hardware.atci@1.0.so
 vendor/lib/vendor.mediatek.hardware.dmc@1.0.so
 vendor/lib/vendor.mediatek.hardware.engineermode@1.0.so
 vendor/lib/vendor.mediatek.hardware.engineermode@1.1.so
