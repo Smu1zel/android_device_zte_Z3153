@@ -1,4 +1,9 @@
 #! /vendor/bin/sh
+#
+# SPDX-FileCopyrightText: The LineageOS Project
+# SPDX-FileCopyrightText: 2026 Lynden Lewis <lyndenl25@yahoo.com>
+# SPDX-License-Identifier: Apache-2.0
+#
 
 #
 # Copyright (c) 2019 ZTE Corporation.
