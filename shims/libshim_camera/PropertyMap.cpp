@@ -71,7 +71,7 @@ bool PropertyMap::tryGetProperty(const String8& key, bool& outValue) const {
 
 bool PropertyMap::tryGetProperty(const String8& key, int32_t& outValue) const {
     String8 stringValue;
-    if (!tryGetProperty(key, stringValue) || stringValue.isEmpty()) {
+    if (!tryGetProperty(key, stringValue) || stringValue.empty()) {
         return false;
     }
     char* end;
@@ -85,7 +85,7 @@ bool PropertyMap::tryGetProperty(const String8& key, int32_t& outValue) const {
 
 bool PropertyMap::tryGetProperty(const String8& key, float& outValue) const {
     String8 stringValue;
-    if (!tryGetProperty(key, stringValue) || stringValue.isEmpty()) {
+    if (!tryGetProperty(key, stringValue) || stringValue.empty()) {
         return false;
     }
     char* end;
