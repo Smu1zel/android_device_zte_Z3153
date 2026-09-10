@@ -112,8 +112,9 @@ BOARD_USES_FULL_RECOVERY_IMAGE := true
 # Security Patch Level
 VENDOR_SECURITY_PATCH := 2021-08-05
 
-# VINTF Manifest
+# VINTF Manifest & Compatibility Matrix
 DEVICE_MANIFEST_FILE += $(DEVICE_PATH)/manifest.xml
+DEVICE_FRAMEWORK_COMPATIBILITY_MATRIX_FILE += $(DEVICE_PATH)/device_framework_matrix.xml
 
 
 # Inherit vendor configurations
