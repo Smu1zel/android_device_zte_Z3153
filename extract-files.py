@@ -42,6 +42,12 @@ blob_fixups: blob_fixups_user_type = {
         'vendor/lib/hw/gralloc.mt6761.so',
     ): blob_fixup()
         .fix_soname(),
+    'vendor/lib/libZEffectLib.so': blob_fixup()
+        .clear_symbol_version('AHardwareBuffer_allocate')
+        .clear_symbol_version('AHardwareBuffer_describe')
+        .clear_symbol_version('AHardwareBuffer_lock')
+        .clear_symbol_version('AHardwareBuffer_release')
+        .clear_symbol_version('AHardwareBuffer_unlock'),
     'vendor/lib/hw/audio.primary.mt6761.so': blob_fixup()
         .add_needed('libshim_audio.so')
         .remove_needed('android.hardware.bluetooth.a2dp@1.0.so'),

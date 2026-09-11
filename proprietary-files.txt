@@ -746,7 +746,7 @@ vendor/lib/libMtkSpeechEnh.so
 vendor/lib/libOpenCL.so
 vendor/lib/libPVROCL.so
 vendor/lib/libPVRScopeServices.so
-vendor/lib/libZEffectLib.so
+vendor/lib/libZEffectLib.so;DISABLE_CHECKELF
 vendor/lib/lib_iir.so
 vendor/lib/lib_speech_enh.so
 vendor/lib/libaal_cust.so
