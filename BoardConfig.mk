@@ -22,6 +22,8 @@ TARGET_BOARD_PLATFORM := mt6761
 MALLOC_SVELTE := true
 
 # Kernel
+TARGET_KERNEL_CROSS_COMPILE_PREFIX := arm-linux-androideabi-
+KERNEL_TOOLCHAIN := $(shell pwd)/prebuilts/gcc/linux-x86/arm/arm-linux-androideabi-4.9-full/bin
 BOARD_PREBUILT_DTBIMAGE := $(DEVICE_PATH)/prebuilt/dtb.img
 BOARD_BOOT_HEADER_VERSION := 2
 BOARD_KERNEL_BASE := 0x40000000
@@ -57,8 +59,12 @@ TW_INCLUDE_RESETPROP := true
 TARGET_KERNEL_SOURCE := kernel/zte/Z3153
 TARGET_KERNEL_CONFIG := z3153v_defconfig
 TARGET_KERNEL_ARCH := arm
+# To anyone reading this, run: git clone https://android.googlesource.com/platform/prebuilts/gcc/linux-x86/arm/arm-linux-androideabi-4.9 prebuilts/gcc/linux-x86/arm/arm-linux-androideabi-4.9-full -b android-9.0.0_r60
+# Then: 
+# cd ~/twrp_workspace/prebuilts/gcc/linux-x86/arm/
+# mv arm-linux-androideabi-4.9 arm-linux-androideabi-4.9-stripped
+# ln -s arm-linux-androideabi-4.9-full arm-linux-androideabi-4.9
 TARGET_KERNEL_CROSS_COMPILE_PREFIX := arm-linux-androideabi-
-KERNEL_TOOLCHAIN := ./prebuilts/gcc/linux-x86/arm/arm-linux-androideabi-4.9/bin
 
 BOARD_PREBUILT_DTBOIMAGE := $(DEVICE_PATH)/prebuilt/dtbo.img
 BOARD_INCLUDE_RECOVERY_DTBO := true
