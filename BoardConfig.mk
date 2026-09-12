@@ -43,8 +43,7 @@ BOARD_MKBOOTIMG_ARGS += --kernel_offset $(BOARD_KERNEL_OFFSET)
 BOARD_MKBOOTIMG_ARGS += --ramdisk_offset $(BOARD_RAMDISK_OFFSET)
 BOARD_MKBOOTIMG_ARGS += --second_offset $(BOARD_SECOND_OFFSET)
 BOARD_MKBOOTIMG_ARGS += --tags_offset $(BOARD_TAGS_OFFSET)
-BOARD_MKBOOTIMG_ARGS += --os_version 10.0.0
-BOARD_MKBOOTIMG_ARGS += --os_patch_level 2021-08
+BOARD_MKBOOTIMG_ARGS += --dtb $(DEVICE_PATH)/prebuilt/dtb.img
 
 # Encryption properties matching stock
 PLATFORM_VERSION := 10
