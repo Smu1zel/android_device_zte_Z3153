@@ -19,11 +19,8 @@ PRODUCT_ENFORCE_RRO_TARGETS := *
 PRODUCT_SOONG_NAMESPACES += \
     $(LOCAL_PATH)
 
-# APEX flattening is deprecated, and kernel 4.9 can't do EROFS, so use EXT4
-PRODUCT_DEFAULT_APEX_PAYLOAD_TYPE := ext4
-# More things because APEX refuses to work otherwise. (Disable compression).
+# Disable APEX compression
 PRODUCT_COMPRESSED_APEX := false
-PRODUCT_PRODUCT_PROPERTIES += ro.apex.updatable=false
 OVERRIDE_PRODUCT_COMPRESSED_APEX := false
 
 # Permissions / Features
