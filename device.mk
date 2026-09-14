@@ -19,6 +19,9 @@ PRODUCT_ENFORCE_RRO_TARGETS := *
 PRODUCT_SOONG_NAMESPACES += \
     $(LOCAL_PATH)
 
+# APEX flattening is deprecated, and kernel 4.9 can't do EROFS, so use EXT4
+PRODUCT_DEFAULT_APEX_PAYLOAD_TYPE := ext4
+
 # Permissions / Features
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/rootdir/etc/fstab.mt6761:$(TARGET_COPY_OUT_RAMDISK)/fstab.mt6761 \
