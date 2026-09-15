@@ -4,21 +4,29 @@
 # SPDX-License-Identifier: Apache-2.0
 #
 
-on init
-    setprop sys.usb.ffs.aio_compat 1
+on early-init
     setprop sys.usb.configfs 1
 
+on init
+    setprop sys.usb.controller "musb-hdrc"
+    setprop sys.usb.ffs.aio_compat 1
+
 on post-fs
+    mkdir /config/usb_gadget/g1 0770 shell shell
     mkdir /config/usb_gadget/g1/strings/0x409 0770 shell shell
     write /config/usb_gadget/g1/bcdDevice 0x0223
     write /config/usb_gadget/g1/bcdUSB 0x0200
+    write /config/usb_gadget/g1/os_desc/use 1
     write /config/usb_gadget/g1/os_desc/b_vendor_code 0x1
     write /config/usb_gadget/g1/os_desc/qw_sign "MSFT100"
+    mkdir /config/usb_gadget/g1/configs/b.1 0770 shell shell
+    mkdir /config/usb_gadget/g1/configs/b.1/strings/0x409 0770 shell shell
     write /config/usb_gadget/g1/configs/b.1/MaxPower 500
     
-    # Create MTP function directory
+    # Create function directories
     mkdir /config/usb_gadget/g1/functions/mtp.gs0
     write /config/usb_gadget/g1/functions/mtp.gs0/os_desc/interface.MTP/compatible_id "MTP"
+    mkdir /config/usb_gadget/g1/functions/ffs.adb
 
 on property:sys.usb.config=none
     write /config/usb_gadget/g1/UDC "none"
@@ -30,6 +38,9 @@ on property:sys.usb.config=none
     setprop sys.usb.state ${sys.usb.config}
 
 # ADB only configuration
+on property:sys.usb.config=adb
+    start adbd
+
 on property:sys.usb.ffs.ready=1 && property:sys.usb.config=adb
     write /config/usb_gadget/g1/configs/b.1/strings/0x409/configuration "adb"
     rm /config/usb_gadget/g1/configs/b.1/f1
@@ -41,6 +52,9 @@ on property:sys.usb.ffs.ready=1 && property:sys.usb.config=adb
     setprop sys.usb.state ${sys.usb.config}
 
 # ADB Sideload configuration
+on property:sys.usb.config=sideload
+    start adbd
+
 on property:sys.usb.ffs.ready=1 && property:sys.usb.config=sideload
     write /config/usb_gadget/g1/configs/b.1/strings/0x409/configuration "sideload"
     rm /config/usb_gadget/g1/configs/b.1/f1
@@ -52,6 +66,9 @@ on property:sys.usb.ffs.ready=1 && property:sys.usb.config=sideload
     setprop sys.usb.state ${sys.usb.config}
 
 # MTP + ADB configuration
+on property:sys.usb.config=mtp,adb
+    start adbd
+
 on property:sys.usb.ffs.ready=1 && property:sys.usb.config=mtp,adb
     write /config/usb_gadget/g1/configs/b.1/strings/0x409/configuration "mtp_adb"
     rm /config/usb_gadget/g1/configs/b.1/f1
